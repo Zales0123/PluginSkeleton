@@ -24,7 +24,8 @@
         "lakion/mink-debug-extension": "^1.2.3",
         "se/selenium-server-standalone": "^2.52",
         "symplify/easy-coding-standard": "^2.4",
-        "sylius-labs/coding-standard": "^1.0"
+        "sylius-labs/coding-standard": "^1.0",
+        "mpzalewski/sylius-plugin-naming-controller": "dev-master"
     },
     "prefer-stable": true,
     "autoload": {
@@ -43,5 +44,17 @@
     },
     "config": {
         "bin-dir": "bin"
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url":  "git@github.com:Zales0123/SyliusPluginNamingController.git"
+        }
+    ],
+    "scripts": {
+        "post-create-project-cmd": [
+            "MPZalewski\\SyliusPluginNamingController\\CreateProjectScript::renamePlugin",
+            "@composer dump-autoload"
+        ]
     }
 }
